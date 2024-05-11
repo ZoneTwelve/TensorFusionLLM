@@ -10,7 +10,7 @@ import copy
 def merge(target: torch.Tensor, master: torch.Tensor, base: torch.Tensor) -> torch.Tensor: # Add on the target model with master model and remove the overlap base model.
     return target + master - base
 
-def main(master: str, target: str, base, save: str, tokenizer: str, skip: list = ['model.embed_tokens.weight', 'lm_head.weight']) -> None:
+def main(master: str, target: str, base, save: str, tokenizer: str = None, skip: list = ['model.embed_tokens.weight', 'lm_head.weight']) -> None:
     # Load models
     print("Loading model")
     model_base = AutoModelForCausalLM.from_pretrained( base )
